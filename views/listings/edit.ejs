@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+</head>
+<body>
+    <h3>Listing Details</h3>
+    <form method="post" action="/listings/<%=listing._id%>/?_method=PUT" enctype="multipart/form-data">
+        <input name="listing[title]" placeholder="title" type="text" value="<%=listing.title%>"/>
+        <input name="listing[image][filename]" placeholder="title" type="hidden" value="<%=listing.image.filename%>"/>
+        <textarea name="listing[description]" placeholder="description"><%=listing.description%></textarea>
+        <div>
+            Original Listing image<br/>
+            <img src="<%=originalImageUrl%>"/>
+        </div>
+        <input name="listing[image]" type="file"/>
+        <input name="listing[price]" placeholder="price" type="number" value="<%=listing.price%>"/>
+        <input name="listing[country]" placeholder="country" type="text" value="<%=listing.country%>"/>
+        <input name="listing[location]" placeholder="location" type="text" value="<%=listing.location%>"/>
+        <button>Update</button>
+    </form>
+</body>
+</html>

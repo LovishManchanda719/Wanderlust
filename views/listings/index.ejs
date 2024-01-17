@@ -1,0 +1,35 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head> -->
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="navbar-nav">
+        <%if(!currentUser)
+        {%>
+            <a class="nav-link" href="/signup">Signup</a>
+            <a class="nav-link" href="/login">Login</a>
+        <%}%>
+        <%if(currentUser){%>
+            <a class="nav-link" href="/logout">Logout</a>
+        <%}%>
+    </div>
+    <%=successMsg%>
+    <%=errorMsg%>
+    <h1>All Listings</h1>
+
+    <ul>
+        <%for(listing of listings){%>
+            <li>
+                <a href="/listings/<%=listing._id%>"><%=listing.title%></a>
+                <%}%>
+            </li>
+    </ul>
+    <form method="get" action="/listings/new">
+        <button>Create New Listing</button>
+    </form>
+</body>
+<!-- </html> -->

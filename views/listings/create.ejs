@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Listing</title>
+</head>
+<body>
+    <form method="post" action="/listings" enctype="multipart/form-data">
+        <input name="listing[title]" placeholder="title" type="text"/>
+    <textarea name="listing[description]" placeholder="description"></textarea>
+    <!-- <input name="listing[image]" placeholder="Enter Url" type="text"/> -->
+    <input name="listing[image]" type="file"/>
+    <input name="listing[price]" placeholder="price" type="number"/>
+    <input name="listing[country]" placeholder="country" type="text"/>
+    <input name="listing[location]" placeholder="location" type="text"/>
+    <button>Add</button>
+    </form>
+</body>
+</html>
