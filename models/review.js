@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");//Requiring mongoose to access Mongodb
 //Making a Schema
+const Schema=mongoose.Schema;
 const reviewSchema=new mongoose.Schema({
     comment: String,
     rating:{
@@ -10,6 +11,10 @@ const reviewSchema=new mongoose.Schema({
     createdAt:{
         type: Date,
         default: Date.now()
+    },
+    owner:{
+        type:Schema.Types.ObjectId,
+        ref:"User",
     }
 });
 module.exports=mongoose.model("Review",reviewSchema);

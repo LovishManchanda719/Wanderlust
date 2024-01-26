@@ -14,11 +14,7 @@ const listingSchema= new mongoose.Schema(
         {
             type: String
         },
-        image:
-        {
-            url: String,
-            filename:String
-        },
+        imageUrl: String,
         price: Number,
         location: String,
         country: String,
@@ -31,6 +27,10 @@ const listingSchema= new mongoose.Schema(
         owner:{
             type:Schema.Types.ObjectId,
             ref:"User",
+        },
+        createdAt:{
+            type: Date,
+            default: Date.now()
         }
     }
 );

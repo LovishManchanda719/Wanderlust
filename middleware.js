@@ -1,14 +1,37 @@
 const Listing=require("./models/listing.js");
+const Review=require("./models/listing.js");
 const ExpressError=require("./utils/expressError.js");
-const listingSchema=require("./schema.js");
-const reviewSchema=require("./schema.js");
-module.exports.isLoggedIn=(req,res,next)=>{
-    if(!req.isAuthenticated()){
-        req.flash("error","you must be logged in");
+const Joi=require("joi");
+const reviewSchema=Joi.object(
+    {
+        review: Joi.object({
+            rating: Joi.number().required().min(1).max(5),
+            comment: Joi.string().required()
+        }).required()
+    }
+);
+const listingSchema=Joi.object(
+    {
+        listing:Joi.object(
+            {
+                title: Joi.string().required(),
+                description: Joi.string().required(),
+                location: Joi.string().required(),
+                country:Joi.string().required(),
+                price: Joi.number().required().min(0),
+                imageUrl: Joi.string().required()
+            }
+        ).required()
+    }
+);
+module.exports.isLoggedIn = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        req.flash("error","You must be logged in");
         return res.redirect("/login");
     }
     next();
 };
+
 module.exports.isOwner=async(req,res,next)=>{
     let {id}=req.params;
     let listing=await Listing.findById(id);

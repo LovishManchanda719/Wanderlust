@@ -23,6 +23,7 @@ module.exports.login=async(req,res)=>{
     res.redirect("/listings");
 };
 module.exports.logout=(req,res)=>{
+    req.flash("success","Logged out");
     req.logout(
         (err)=>
             {
@@ -31,6 +32,5 @@ module.exports.logout=(req,res)=>{
                     return next(err);
                 }
             });
-    req.flash("success","Logged Out Succesfully");
-    res.redirect("/listings");
+    res.redirect("/");
 };

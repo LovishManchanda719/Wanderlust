@@ -8,7 +8,10 @@ const reviewSchema=require("../schema.js");
 const Review=require("../models/review.js");
 const Listing=require("../models/listing.js");
 const session = require("express-session");
-const flash = require("express-flash");
+const flash = require("connect-flash");
+const {isLoggedIn}=require("../middleware.js");
+const {isOwner}=require("../middleware.js");
+const {isOwnerOfReview}=require("../middleware.js");
 const {validateReview}=require("../middleware.js");
 const reviewController=require("../controllers/review.js");
 router.use(session({
@@ -16,16 +19,5 @@ router.use(session({
     resave: true,
     saveUninitialized: true
 }));
-router.use(flash());
-router.use((req,res,next)=>{
-    res.locals.successMsg=req.flash("success");
-    errorMsg=req.flash("error");
-    next();
-});
-//Reviews
-
-//Create Review
 router.post("/",validateReview,asyncWrap(reviewController.createReview));
-//Delete Review
-router.delete("/:reviewId",asyncWrap(reviewController.deleteReview));
 module.exports=router;

@@ -1,3 +1,83 @@
-body{
-    background-color: pink;
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.container {
+    flex: 1;
+  }
+.fa-house{
+    color:#fe424d;
 }
+.f-info-links a{
+    text-decoration:none;
+    color:#222222;
+
+}
+.f-info-links a:hover{
+    text-decoration:underline;
+}
+.f-info{
+    text-align: center;
+    display:flex;
+    height:8rem;
+    background-color: #ebebeb;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items:space-evenly;
+}
+.f-info-links{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.f-info-socials,.f-info-brand {
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-info-socials i{
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: #fe424d;
+}
+
+.card{
+    border:none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top-index,.card-img-top-show{
+    border-radius: 1rem !important;
+    height:30rem !important;
+    width:auto;
+    object-fit: cover !important; 
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-top-index:hover{
+    opacity:0.7;
+    background-color: white;
+}
+.add-btn,.listing-delete-btn,.listing-edit-btn,.review-delete-btn,.review-submit-btn{
+    background-color:#fe424d !important;
+    border:none !important;
+}
+.show-btns{
+    display: flex;
+}
+  .alert {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
