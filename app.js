@@ -169,4 +169,3 @@ app.post('/search', asyncWrap(async (req, res) => {
             res.render('listings/search.ejs', { listings });
         }
 }));
-
